@@ -11,7 +11,9 @@ print("APP.PY STARTED")
 
 app = Flask(__name__)
 app.secret_key = 'animal-detection-secret-key-2024'
-DATABASE = 'users.db'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATABASE = os.path.join(BASE_DIR, 'users.db')
+
 
 # Email configuration
 SENDER_EMAIL = os.environ.get("SENDER_EMAIL")
@@ -725,10 +727,9 @@ def stats():
     </div>
     '''
 
-if __name__ == '__main__':
-    init_database()
+if __name__ == "__main__":
     local_ip = get_local_ip()
-    
+
     print("🐾 Animal Detection System with OTP Verification")
     print("📍 Local access: http://localhost:5000")
     print(f"📍 Network access: http://{local_ip}:5000")
@@ -742,7 +743,7 @@ if __name__ == '__main__':
     print(f"\n📱 QR CODE GENERATION:")
     print(f"   Use this URL for QR code: http://{local_ip}:5000")
     print("=" * 60)
-    
-    app.run(host='0.0.0.0', port=5000)
-    if __name__ == "__main__":
-     app.run(debug=True)
+
+    app.run(debug=True)
+
+
