@@ -14,8 +14,8 @@ app.secret_key = 'animal-detection-secret-key-2024'
 DATABASE = 'users.db'
 
 # Email configuration
-SENDER_EMAIL = "ananthlaxmans.ug.24.cs@francisxavier.ac.in"
-EMAIL_PASSWORD = "pgqh gewq vvba ufoz"
+SENDER_EMAIL = os.environ.get("SENDER_EMAIL")
+EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 
 def get_local_ip():
     """Get the local IP address dynamically"""
@@ -743,6 +743,6 @@ if __name__ == '__main__':
     print(f"   Use this URL for QR code: http://{local_ip}:5000")
     print("=" * 60)
     
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
     if __name__ == "__main__":
      app.run(debug=True)
